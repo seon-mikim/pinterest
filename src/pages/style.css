@@ -1,0 +1,48 @@
+/* Login */
+.Login-area{
+   display: flex;
+   flex-direction: column;
+   width: 484px;
+   background-color:#ececec;
+    height: 702px;
+   margin: 0 auto;
+   border-radius: 32px;
+   padding: 20px 10px 24px;
+   
+}
+
+.Login-area .Login-title{
+    width: 400px;
+    margin: 0 auto 22px;
+}
+
+.Login-area .input-area {
+    width: 268px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.Login-area .input-area input{
+    border: none;
+    border-radius:  8px;
+    margin-top: 10px;
+    width: calc(12 / 12 * 100%);
+    min-height: 48px;
+}
+
+svg {
+    fill: #c00;
+}
+
+
+.pw-find{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.close-btn{
+    width: 40px;
+    height: 40px;
+    margin-left: 400px;
+    border: none
+}
