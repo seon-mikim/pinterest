@@ -1,29 +1,37 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-export const _getUsersName = createAsyncThunk(
-    "getUsersName",
-    async (payload, thunkAPI) => {
-      // console.log(payload)
-      try {
-        const data = await axios.get("");
-        // console.log(data.data.data)
-        return thunkAPI.fulfillWithValue(data.data.data);
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error);
-      }
-    }
-  );
+
   
   
   
   export const __login = createAsyncThunk(
-    "data/login",
+    "api/member/login",
     async (payload, thunkAPI) => {
         try {
-            // console.log(payload);
+            console.log(payload);
             const data =  await axios.post("http://13.125.24.153/api/member/login", payload);
-            // console.log(data);
+            console.log(data);
+            
+            localStorage.setItem("token1", data.headers.authorization)
+            localStorage.setItem("token2", data.headers.refreshtoken)
+            localStorage.setItem("name",data.data.data.name)
+  
+            if(data.data.success===false)
+                alert(data.data.error.message);
+            return thunkAPI.fulfillWithValue(data.data);
+          } catch (error) {
+            return thunkAPI.rejectWithValue(error);
+          }
+    }
+  );
+  export const __join = createAsyncThunk(
+    "api/member/signup",
+    async (payload, thunkAPI) => {
+        try {
+            console.log(payload);
+            const data =  await axios.post("http://13.125.24.153/api/member/signup", payload);
+            console.log(data);
             
             localStorage.setItem("token1", data.headers.authorization)
             localStorage.setItem("token2", data.headers.refreshtoken)
@@ -40,17 +48,16 @@ export const _getUsersName = createAsyncThunk(
 
 
 
-const userSlice = createSlice({
-    name:'user',
+const loginSlice = createSlice({
+    name:'login',
     initialState:{
-        user:null,
-        users:[]
+      data: [],
+      success: false,
+      error: null,
+      isLoading: false
     },
     reducers: {
-        login:(state, action) =>{
-            state.user = action.payload;
-            axios.post("")
-        },
+      
         logout(state){
             localStorage.removeItem('token1')
             localStorage.removeItem('token2')
@@ -60,6 +67,7 @@ const userSlice = createSlice({
     },
 
     extraReducers: {
+      extraReducers: {
         [__login.pending]: (state) => {
           state.isLoading = true; // 네트워크 요청이 시작되면 로딩상태를 true로 변경합니다.
         },
@@ -71,20 +79,9 @@ const userSlice = createSlice({
           state.isLoading = false; // 에러가 발생했지만, 네트워크 요청이 끝났으니, false로 변경합니다.
           state.error = action.payload; // catch 된 error 객체를 state.error에 넣습니다.
         },
-    
-        [_getUsersName.pending]: (state) => {
-          state.isLoading = true; 
-        },
-        [_getUsersName.fulfilled]: (state, action) => {
-          state.isLoading = false; 
-          state.users = action.payload; 
-        },
-        [_getUsersName.rejected]: (state, action) => {
-          state.isLoading = false; 
-          state.error = action.payload; 
-        },
       },
-})
+    },
+  })
 
-export const { login, logout  } = userSlice.actions;
-export default userSlice.reducer;
+export const { login, logout  } = loginSlice.actions;
+export default loginSlice.reducer;

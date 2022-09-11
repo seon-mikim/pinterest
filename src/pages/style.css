@@ -12,8 +12,11 @@
 }
 
 .Login-area .Login-title{
-    width: 400px;
+    width: 380px;
     margin: 0 auto 22px;
+    padding-left: 16px;
+    padding-right: 16px;
+    word-break: break-word;
 }
 
 .Login-area .input-area {
@@ -26,9 +29,13 @@
     border: none;
     border-radius:  8px;
     margin-top: 10px;
+    margin-bottom: 10px;
     width: calc(12 / 12 * 100%);
     min-height: 48px;
 }
+
+
+
 
 svg {
     fill: #c00;
@@ -39,10 +46,20 @@ svg {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
-.close-btn{
+.btn-area{
+   margin-left: 420px;
     width: 40px;
     height: 40px;
-    margin-left: 400px;
-    border: none
 }
+.btn-area .close-btn{
+    justify-content: end;
+    width: 40px;
+    height: 40px;
+    border: none;
+  
+}
+
+.logo-img-area .logo-img{
+    margin-left: 230px;
+}
+
