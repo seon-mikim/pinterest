@@ -21,6 +21,8 @@ const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
       <div className="head_btn-home">{firstChild}</div>
       <select name="" id="">
         <option value="">만들기</option>
+        <option value="">아이디어 핀 만들기</option>
+        <option value="">핀 만들기</option>
       </select>
       <input type="text" />
       

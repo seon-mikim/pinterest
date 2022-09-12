@@ -1,17 +1,28 @@
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
 /* Login */
 .Login-area{
    display: flex;
    flex-direction: column;
    width: 484px;
-   background-color:#ececec;
+   background-color:#fff;
     height: 702px;
-   margin: 0 auto;
+   margin: 40px auto;
    border-radius: 32px;
    padding: 20px 10px 24px;
    z-index: 999;
    
 }
-
+.Login-area .logo-img-area{
+    width: 40px;
+}
 .Login-area .Login-title{
     width: 380px;
     margin: 0 auto 22px;
@@ -27,7 +38,7 @@
 }
 
 .Login-area .input-area input{
-    border: none;
+    border: 2px solid #ececec;
     border-radius:  8px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -57,8 +68,8 @@ svg {
 }
 .btn-area .close-btn{
     justify-content: end;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: none;
     background-color: #fff;
   

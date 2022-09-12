@@ -69,15 +69,11 @@ header input {
 header select {
     border: none;
     border-radius: 20px;
-    
     padding: 10px;
     font-weight: bold;
     margin-left: 10px;
 }
-header .head_btn-home {
 
-  
-}
 
 .Btn {
     cursor: pointer;
