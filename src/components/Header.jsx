@@ -19,6 +19,7 @@ const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
       <h1>{headerText}</h1>
       </div>
 
+      <div className="head_btn_area">
       <div className="head_btn_left">{leftChild}</div>
       <div className="head_btn_right">{rightChild}</div>
       </div>
