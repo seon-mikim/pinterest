@@ -25,7 +25,7 @@ const Home = () => {
 
   return (
     <div>
-        <Header headerText={'pinterest'} firstChild={<Btn text={'홈'}  type={'negative'}onClick={()=> navigate('/')}/>} leftChild={<Btn text={'로그인'} onClick={onClickButton} type={'red'}/>} rightChild={<Btn text={'가입하기'} type={'default'} onClick={onClickButton2}/>}/>
+        <Header  firstChild={<Btn text={'홈'}  type={'negative'}onClick={()=> navigate('/')}/>} leftChild={<Btn text={'로그인'} onClick={onClickButton} type={'red'}/>} rightChild={<Btn text={'가입하기'} type={'default'} onClick={onClickButton2}/>}/>
         <Mainborad/>
        {modal1&&(<Login modal1={modal1} onClose={()=>{setModal1(false)}}/>)}
        {modal2&&(<Join modal2={modal2} onClose={()=>{setModal2(false)}}/>)}

@@ -51,7 +51,7 @@ header .head_btn_right {
 
 
 header input {
-    width: 75%;
+    width: 79%;
     height: 35px;
     border-radius: 20px;
     border: none;
@@ -62,7 +62,7 @@ header input {
 header select {
     border: none;
     border-radius: 20px;
-    background-color: #ececec;
+    
     padding: 10px;
     font-weight: bold;
     margin-left: 10px;
