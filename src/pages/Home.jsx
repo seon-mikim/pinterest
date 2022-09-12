@@ -3,7 +3,7 @@ import Btn from '../components/Btn'
 import Header from '../components/Header'
 import Login from './Login'
 import Join from './Join'
-import Mainborad from './Mainborad'
+import Mainborad from '../components/Mainborad'
 
 const Home = () => {
   const [modal1, setModal1] = useState(false)
