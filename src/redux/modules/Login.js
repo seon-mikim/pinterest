@@ -1,21 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
 
-
-  
-  
-  
+  //로그인
   export const __login = createAsyncThunk(
     "api/member/login",
     async (payload, thunkAPI) => {
         try {
-            console.log(payload);
+            // console.log(payload);
             const data =  await axios.post("http://13.125.24.153/api/member/login", payload);
-            console.log(data);
+            // console.log(data);
             
             localStorage.setItem("token1", data.headers.authorization)
             localStorage.setItem("token2", data.headers.refreshtoken)
-            localStorage.setItem("name",data.data.data.name)
   
             if(data.data.success===false)
                 alert(data.data.error.message);
@@ -25,18 +21,15 @@ import axios from 'axios'
           }
     }
   );
+
+  //회원가입
   export const __join = createAsyncThunk(
     "api/member/signup",
     async (payload, thunkAPI) => {
         try {
             console.log(payload);
             const data =  await axios.post("http://13.125.24.153/api/member/signup", payload);
-            console.log(data);
-            
-            localStorage.setItem("token1", data.headers.authorization)
-            localStorage.setItem("token2", data.headers.refreshtoken)
-            localStorage.setItem("name",data.data.data.name)
-  
+            // console.log(data);            
             if(data.data.success===false)
                 alert(data.data.error.message);
             return thunkAPI.fulfillWithValue(data.data);
@@ -60,9 +53,7 @@ const loginSlice = createSlice({
       
         logout(state){
             localStorage.removeItem('token1')
-            localStorage.removeItem('token2')
-            localStorage.removeItem('name')
-            
+            localStorage.removeItem('token2')         
         }
     },
 
@@ -83,5 +74,5 @@ const loginSlice = createSlice({
     },
   })
 
-export const { login, logout  } = loginSlice.actions;
+export const { logout } = loginSlice.actions;
 export default loginSlice.reducer;
