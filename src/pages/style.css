@@ -18,10 +18,10 @@
    height: 702px;
    margin: 0 auto;
    margin-top: 40px;
-   border-radius: 24px;
-   padding: 10px 5px 10px 5px;
    box-shadow: 2px 2px 5px 3px gray;
-   
+   border-radius: 32px;
+   padding: 20px 10px 24px;
+   z-index: 999;
    
 }
 
@@ -53,7 +53,9 @@
     border: 1px solid gray
 }
 
-
+.Login-area .Login-btn-area{
+    margin-top: 20px;
+}
 
 
 svg {
@@ -69,13 +71,15 @@ svg {
    margin-left: 420px;
     width: 40px;
     height: 40px;
+    
 }
 .btn-area .close-btn{
     justify-content: end;
     width: 35px;
     height: 35px;
     border: none;
-    background-color: white;
+    background-color: #fff;
+
   
 }
 

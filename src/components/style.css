@@ -7,11 +7,13 @@
 header {
     width: 100%;
     display: flex;
+    
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: #c00;
     padding: 16px;
+    
     
 }
 
@@ -34,16 +36,7 @@ header span {
     
 }
 /* a link area */
-header .a-link-area {
-    margin-right: 10px;
-    justify-content: end;
-    width: 83%;
-}
 
-header .a-link-area span{
- margin-right: 10px;
- font-weight: bold;
-}
 /* Btn */
 
 header .head_btn_area {
@@ -63,6 +56,28 @@ header .head_btn_area  .head_btn_left {
 }
 
 
+
+
+header input {
+    width: 75%;
+    height: 35px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ececec;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+header select {
+    border: none;
+    border-radius: 20px;
+    background-color: #ececec;
+    padding: 10px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+header .head_btn-home {
+    margin-left: 10px;
+}
 
 .Btn {
     cursor: pointer;
@@ -89,6 +104,11 @@ header .head_btn_area  .head_btn_left {
     font-weight: bold;
 }
 
+.Btn_negative {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+}
 
 
 /* modal */

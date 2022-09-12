@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./style.css";
 
-const Header = ({ headerText,leftChild, rightChild }) => {
+const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
 
   return (
     <header>
@@ -19,12 +19,6 @@ const Header = ({ headerText,leftChild, rightChild }) => {
       <h1>{headerText}</h1>
       </div>
 
-      {/* <div className="a-link-area">
-        <a href="https://about.pinterest.com/ko"><span>소개</span></a>
-        <a href="https://business.pinterest.com/ko/"><span>비지니스</span></a>
-        <a href="https://newsroom.pinterest.com/en"><span>언론</span></a>
-      </div> */}
-      <div className="head_btn_area">
       <div className="head_btn_left">{leftChild}</div>
       <div className="head_btn_right">{rightChild}</div>
       </div>
