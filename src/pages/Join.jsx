@@ -6,7 +6,7 @@ import "./style.css";
 
 const Join = ({ onClose }) => {
   const hanleClose = (event) => {
-    event.stopPropagation();
+    event.preventDefault();
     onClose?.();
   };
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const Join = ({ onClose }) => {
     dispatch(__join(user));
   };
   return (
-    <div className="background" onClick={hanleClose}>
+    <div className="background" onClick={(e)=>{ e.preventDefault(); hanleClose();}}>
       <div className="Login-area">
         <div>
           <div className="btn-area">
