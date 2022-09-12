@@ -34,7 +34,9 @@ const styles = {
       transform:'translateX(-50%)',
       display:'grid',
       gridTemplateColumns:'repeat(auto-fill, 250px)',
-      gridAutoRows:'10px'
+      gridAutoRows:'10px',
+      justifyContent:'center'
+
 
    }
 }

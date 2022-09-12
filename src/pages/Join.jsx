@@ -6,7 +6,8 @@ import "./style.css";
 
 const Join = ({ onClose }) => {
 
-  const hanleClose = () => {
+  const hanleClose = (event) => {
+    event.preventDefault()
     onClose?.();
   };
 
@@ -35,7 +36,7 @@ const Join = ({ onClose }) => {
     <div className="Login-area">
       <div>
         <div className="btn-area">
-        <button className="close-btn" onClick={hanleClose}>
+        <button className="close-btn" onClick={(event)=>{ event.preventDefault(); hanleClose()}}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 100 100"
