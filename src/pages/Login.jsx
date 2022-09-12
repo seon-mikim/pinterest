@@ -7,7 +7,8 @@ import { __login } from "../redux/modules/Login";
 import "./style.css";
 
 const Login = ({ onClose }) => {
-  const hanleClose = () => {
+  const hanleClose = (event) => {
+    event.preventDefault();
     onClose?.();
   };
 
@@ -28,7 +29,7 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <div className="background" onClick={hanleClose}>
+    <div className="background" onClick={hanleClose()}>
       <div className="Login-area">
         <div>
           <div className="btn-area">
