@@ -3,7 +3,7 @@ import Btn from '../components/Btn'
 import Header from '../components/Header'
 import Login from './Login'
 import Join from './Join'
-import Mainborad from './Mainborad'
+import Mainborad from '../components/Mainborad'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 

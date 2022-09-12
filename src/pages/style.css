@@ -1,11 +1,24 @@
 /* Login */
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+
 .Login-area{
    display: flex;
    flex-direction: column;
-   width: 484px;
-   background-color:#ececec;
-    height: 702px;
+   width: 470px;
+   background-color:white;
+   height: 702px;
    margin: 0 auto;
+   margin-top: 40px;
+   box-shadow: 2px 2px 5px 3px gray;
    border-radius: 32px;
    padding: 20px 10px 24px;
    z-index: 999;
@@ -14,16 +27,20 @@
 
 .Login-area .Login-title{
     width: 380px;
-    margin: 0 auto 22px;
-    padding-left: 16px;
-    padding-right: 16px;
+    font-size: 12px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
     word-break: break-word;
 }
 
 .Login-area .input-area {
     width: 268px;
-    margin:0 auto 40px auto;
+    margin: 0 auto 40px auto;
     text-align: left;
+    
+
 }
 
 .Login-area .input-area input{
@@ -33,6 +50,7 @@
     margin-bottom: 10px;
     width: calc(12 / 12 * 100%);
     min-height: 48px;
+    border: 1px solid gray
 }
 
 .Login-area .Login-btn-area{
@@ -46,7 +64,7 @@ svg {
 
 
 .pw-find{
-    margin-top: 10px;
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 .btn-area{
@@ -57,10 +75,11 @@ svg {
 }
 .btn-area .close-btn{
     justify-content: end;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border: none;
     background-color: #fff;
+
   
 }
 
@@ -68,3 +87,6 @@ svg {
     margin-left: 230px;
 }
 
+.login-btn-area {
+    margin-top: 20px;
+}

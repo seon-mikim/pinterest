@@ -1,11 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
-import login from "../modules/Login"
+import loginSlice from "../modules/Login"
 
 
 const store = configureStore({
     reducer:{
-        login,
-    }
-})
+        loginSlice,
+    },
+
+    middleware: (getDefaultMiddleware) => 
+    getDefaultMiddleware({ serializableCheck: false, }),
+
+});
 
 export default store
