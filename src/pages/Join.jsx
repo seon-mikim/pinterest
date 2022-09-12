@@ -6,8 +6,8 @@ import "./style.css";
 
 const Join = ({ onClose }) => {
 
-  const hanleClose = (event) => {
-    event.preventDefault()
+  const hanleClose = () => {
+
     onClose?.();
   };
 

@@ -12,7 +12,7 @@ import "./style.css";
 const Login = ({ onClose }) => {
   
   const hanleClose = (event) => {
-    event.preventDefault()
+    
     onClose?.();
   };
   
