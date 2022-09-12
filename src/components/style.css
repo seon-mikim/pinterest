@@ -15,6 +15,7 @@ header {
     padding: 16px;
     
     
+    
 }
 
 header svg {
@@ -68,13 +69,14 @@ header input {
 header select {
     border: none;
     border-radius: 20px;
-    background-color: #ececec;
+    
     padding: 10px;
     font-weight: bold;
     margin-left: 10px;
 }
 header .head_btn-home {
-    margin-left: 10px;
+
+  
 }
 
 .Btn {
@@ -106,6 +108,8 @@ header .head_btn-home {
     background-color: black;
     color: white;
     font-weight: bold;
+    width: 50px;
+    text-align: center;
 }
 
 
