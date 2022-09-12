@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useDispatch} from "react-redux";
+
 
 import Btn from "../components/Btn";
 import { __login } from "../redux/modules/Login";
 import "./style.css";
 
+
+
 const Login = ({ onClose }) => {
-  const navigate = useNavigate();
+  
   const hanleClose = () => {
     onClose?.();
   };
-  const result = useSelector((state) => state.login);
+  
   const dispatch = useDispatch();
   let initialState = {
     email: "",
@@ -82,10 +84,8 @@ const Login = ({ onClose }) => {
             />
           </div>
 
-          <div className="pw-find">
-            <span>비밀 번호를 잊으셨나요?</span>
-          </div>
-          <div>
+         
+          <div className="Login-btn-area">
             <Btn className="Login-btn" text={"로그인"} type={"red"} />
           </div>
         </form>
