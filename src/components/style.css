@@ -3,11 +3,13 @@
 *{
     font-family: 'Roboto', sans-serif;
 }
+
 header {
-    width: 100%;
+    width: 98%;
     display: flex;
     
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     color: #c00;
     padding: 16px;
@@ -21,8 +23,9 @@ header svg {
 
 header h1 {
     font-size: 20px;
-    margin-left: 5px;
+    margin: 0 5px 0 ;
     font-weight:bold;
+    
 }
 
 header div {
@@ -36,22 +39,25 @@ header span {
 /* a link area */
 
 /* Btn */
-header .head_btn_area {
-    
-}
-header .head_btn_right {
+
+
+
+header .head_btn_area  .head_btn_right {
     margin-left: 10px;
     justify-content: end;
 }
 
-  header .head_btn_left {
+header .head_btn_area  .head_btn_left {
+    
     
     justify-content: end;
 }
 
 
+
+
 header input {
-    width: 79%;
+    width: 75%;
     height: 35px;
     border-radius: 20px;
     border: none;
@@ -62,7 +68,7 @@ header input {
 header select {
     border: none;
     border-radius: 20px;
-    
+    background-color: #ececec;
     padding: 10px;
     font-weight: bold;
     margin-left: 10px;
@@ -70,11 +76,13 @@ header select {
 header .head_btn-home {
     margin-left: 10px;
 }
+
 .Btn {
     cursor: pointer;
     border: none;
     border-radius: 20px;
     width: 100%;
+    height: 40px;
     padding: 8px 12px;
     font-size: 20px;
     word-spacing: normal;
