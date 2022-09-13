@@ -25,6 +25,6 @@ const styles = {
     large: {
         gridRowEnd:'span 45'
     },
-}
+};
 
-export default Pin
+export default Pin;
