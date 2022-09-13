@@ -1,8 +1,19 @@
 import React from "react";
+import { useState } from "react";
+import styled from "styled-components";
 import "./style.css";
 
-const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
 
+
+
+const Header = (props,{ headerText, leftChild, rightChild, firstChild}) => {
+
+  const [input, setInput] = useState('')
+  const onSearchSubmit = (e) => {
+    e.preventDefault()
+    props.onSubmit(input)
+  
+  }
   return (
     <header>
       <svg
@@ -20,10 +31,17 @@ const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
       <div className="head_btn-home">{firstChild}</div>
       <select name="" id="">
         <option value="">만들기</option>
-       
       </select>
-      <input type="text" />
-      
+      <SearchWrapper>
+        <SearchBarWrap>
+        <form >
+          <input type="text" onChange={(e)=>setInput(e.target.value)}/>
+          <button type='sumbit'onClick={onSearchSubmit}></button>
+        </form>
+
+        </SearchBarWrap>
+      </SearchWrapper>
+
       <div className="head_btn_left">{leftChild}</div>
       <div className="head_btn_right">{rightChild}</div>
     </header>
@@ -31,3 +49,42 @@ const Header = ({ headerText,leftChild, rightChild, firstChild }) => {
 };
 
 export default Header;
+
+
+const SearchWrapper = styled.div`
+  flex:1;
+`
+const SearchBarWrap = styled.div`
+  background-color: #efefef;
+  display: flex;
+  height: 48px;
+  width: 100%;
+  border-radius: 50px;
+  border: none;
+  padding-left: 10px;
+
+  form{
+    display: flex;
+    flex: 1;
+  }
+
+  form > input {
+    background-color: transparent;
+    border:none;
+    width: 100%;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+
+  form > button {
+    display: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input:active{
+    outline: none;
+  }
+`
