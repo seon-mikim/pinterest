@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Button from "../elem/Button"
 import HeaderUser from "../components/HeaderUser"
 
+
 const AddPin = () => {
 
 
@@ -34,7 +35,7 @@ const AddPin = () => {
                   background_color="red"
                   border_radius="7px"
                   border="none"
-                >Save</Button>
+                >저장</Button>
                 </ButtonWrapper>
             <Bottom>
             <LeftSide>
@@ -50,7 +51,7 @@ const AddPin = () => {
                             <path d="M24 12c0-6.627-5.372-12-12-12C5.373 0 0 5.373 0 12s5.373 12 12 12c6.628 0 12-5.373 12-12zm-10.767 3.75a1.25 1.25 0 0 1-2.5 0v-3.948l-1.031 1.031a1.25 1.25 0 0 1-1.768-1.768L12 7l4.066 4.065a1.25 1.25 0 0 1-1.768 1.768l-1.065-1.065v3.982z"></path>
                             </svg>
                         </IconWrap>
-                        <Advice>click to upload</Advice>
+                        <Advice>드래그하거나 클릭하여 업로드</Advice>
                         <Uploader
                             id="ImageUploader"
                             type="file"
@@ -62,17 +63,17 @@ const AddPin = () => {
             <RightSide>
                 <PinTitle
                     type="text"
-                    placeholder="Add your title"
-                    maxlength="50"
-                    rows="1"
+                    placeholder="제목"
+                  
+                  
                     // onKeyDown={(e) => Resizing(e.target)}
                     // onChange={titleChangeHandler}
                 />
+                
                 <PinDescription
                     type="text"
-                    placeholder="Tell everyone what your Pin is about"
-                    maxlength="500"
-                    rows="1"
+                    placeholder="사람들에게 회원님의 핀에 대해 설명해 보세요"
+                    
                     // onKeyDown={(e) => Resizing(e.target)}
                     // onChange={desChangeHandler}
                 />
@@ -194,7 +195,7 @@ const RightSide = styled.div`
 `;
 
 
-const PinTitle = styled.textarea`
+const PinTitle = styled.input`
     border: none;
     border-bottom: 1px solid rgba(142, 142, 142, 0.5);
     padding: 10px;
@@ -212,7 +213,7 @@ const PinTitle = styled.textarea`
 
 `;
 
-const PinDescription = styled.textarea`
+const PinDescription = styled.input`
     width: 320px;       
     border: none;
     border-bottom: 1px solid rgba(142, 142, 142, 0.5);
