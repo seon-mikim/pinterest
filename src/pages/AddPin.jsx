@@ -41,6 +41,27 @@ const AddPin = () => {
                     ></Uploader>
                 </InsideUploader>
             </UploaderWrapper>
+            <PinTitle
+                type="text"
+                placeholder="Add your title"
+                maxlength="50"
+                rows="1"
+                // onKeyDown={(e) => Resizing(e.target)}
+                // onChange={titleChangeHandler}
+            />
+            <div>
+                {/* <Avatar fontSize="1.5rem">
+                    {name.slice(0, 1).toUpperCase()}
+                </Avatar> */}
+            </div>
+            <PinDescription
+                type="text"
+                placeholder="Tell everyone what your Pin is about"
+                maxlength="500"
+                rows="1"
+                // onKeyDown={(e) => Resizing(e.target)}
+                // onChange={desChangeHandler}
+            />
         </Container>
         </>
     )
@@ -108,3 +129,40 @@ const Advice = styled.div`
     top: 60%;
 
 `
+
+const PinTitle = styled.textarea`
+    border: none;
+    border-bottom: 1px solid rgba(142, 142, 142, 0.5);
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    color: #333;
+    caret-color: #333;
+    overflow: auto;
+    outline: 0px none transparent;
+    resize: none;
+    &:focus {
+        border-bottom: 1.5px solid rgb(0, 116, 232);
+    }
+
+`;
+
+const PinDescription = styled.textarea`
+    width: 400px;       
+    border: none;
+    border-bottom: 1px solid rgba(142, 142, 142, 0.5);
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    caret-color: #333;
+    overflow: auto;
+    outline: 0px none transparent;
+    resize: none;
+    &:focus {
+        border-bottom: 1.5px solid rgb(0, 116, 232);
+    }
+
+`;
