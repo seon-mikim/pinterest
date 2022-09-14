@@ -72,11 +72,9 @@ const Home = () => {
   return (
     <div>
       <Header
-        onSubmit={onSearchSubmit}
-        headerText={"pinterest"}
-        firstChild={
-          <Btn text={"홈"} type={"negative"} onClick={() => navigate("/")} />
-        }
+        
+      
+      
         leftChild={<Btn text={"로그인"} onClick={onClickButton} type={"red"} />}
         rightChild={
           <Btn text={"가입하기"} type={"default"} onClick={onClickButton2} />
