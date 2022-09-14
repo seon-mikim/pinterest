@@ -7,6 +7,8 @@ import { __login } from "../redux/modules/Login";
 import "./style.css";
 
 const Login = ({ onClose }) => {
+
+  
   const hanleClose = (event) => {
     onClose?.();
   };

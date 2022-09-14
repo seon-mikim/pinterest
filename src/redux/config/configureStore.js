@@ -1,4 +1,5 @@
 import { configureStore, } from "@reduxjs/toolkit";
+import { createBrowserHistory } from "history";
 import login from "../modules/Login"
 import pinlist from '../modules/PinList'
 import pin from '../modules/Pin'

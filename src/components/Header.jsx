@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 `;
 const LogoWrapper = styled.div`
 	padding: 8px 0;
-	color: #e60023;
+	color:#e60023;
 	font-weight: 600;
 	font-size: 20px;
 	
