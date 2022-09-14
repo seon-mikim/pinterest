@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import DropDown from "../components/DropDown/DropDown"
 import {logout} from "../redux/modules/Login"
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
@@ -22,6 +21,14 @@ const HeaderUser = (props) => {
     }
 };
 
+  const homenavi = () => {
+    navigate("/", {reload: true})
+};
+
+  const addnavi = () => {
+    navigate("/addpin", {reload: true})
+  };
+
   const [input, setInput] = useState("");
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -30,12 +37,14 @@ const HeaderUser = (props) => {
   return (
     <Wrapper>
       <LogoWrapper>
-        <IconButton>
+        <IconButton onClick={homenavi}>
           <PinterestIcon />
         </IconButton>
       </LogoWrapper>
-      <HomePageButton>홈</HomePageButton>
-      <MakingButton>만들기</MakingButton>
+
+      <HomePageButton onClick={homenavi}>홈</HomePageButton>
+      <MakingButton onClick={addnavi}>만들기</MakingButton>
+
 
       <SearchWrapper>
         <SearchBarWrap>
@@ -60,7 +69,7 @@ export default HeaderUser;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  height: 56px;
+  height: 80px;
   padding: 12px 4px 4px 16px;
   background-color: white;
   color: black;
