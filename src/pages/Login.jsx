@@ -9,7 +9,7 @@ import "./style.css";
 const Login = ({ onClose }) => {
 
  
-  const hanleClose = (event) => {
+  const handleClose = (event) => {
     event.preventDefault();
     onClose?.();
   };
@@ -31,13 +31,13 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <div className="background" onClick={(event)=>{event.preventDefault(); hanleClose()}}>
+    <div className="background">
       <div className="Login-area">
         <div>
           <div className="btn-area">
             <button
               className="close-btn"
-              onClick={hanleClose}>
+              onClick={handleClose}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100"

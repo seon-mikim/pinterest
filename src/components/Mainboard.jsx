@@ -13,7 +13,7 @@ const Mainboard = (props) => {
   const dispatch = useDispatch();
   const pinlist = useSelector((state) => state.pinlist.pinlist);
 
-  console.log(pinlist)
+  // console.log(pinlist)
 
   useEffect(() => {
     dispatch(__getList());
