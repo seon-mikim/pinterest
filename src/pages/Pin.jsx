@@ -12,19 +12,13 @@ const Pin = () => {
     <>
     <HeaderUser/>
     <Background>
-    <Container
-        className="PinWrapper"
-        justify_content="initial"
-        align_items="start"
-        margin="80px auto"
-        width="50%"
-        border_radius="32px"
-        box_shadow="0 1px 20px 0 rgb(0 0 0 / 10%)"
-    >
+    <MainWrapper>
+   
         <PinImage/>
         <ButtonBox/>
         <Desc/>
-    </Container>
+
+    </MainWrapper>
     </Background>
     </>
     )
@@ -38,4 +32,17 @@ const Background = styled.div`
     position: relative;
     height: 100vh;
     background-color: #efefef;
+`;
+
+const MainWrapper = styled.div`
+    width: 880px;
+    padding-top: 20px;
+    position: absolute;
+    background-color: #fff;
+    top: 10px;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, 10%);
+    border-radius: 16px;
+    margin-bottom: 30px;
 `;
