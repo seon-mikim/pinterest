@@ -2,7 +2,6 @@ import React from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from '@mui/icons-material/Search';
 import "./style.css";
@@ -25,7 +24,8 @@ const Header = (props, { headerText, leftChild, rightChild, firstChild }) => {
       <HomePageButton onClick={navigate("/")}>홈</HomePageButton>
       <MakingButton>
         만들기
-        <ExpandMoreIcon/> 
+       
+       
       </MakingButton>
 
       <SearchWrapper>
@@ -88,7 +88,7 @@ const HomePageButton = styled.button`
   padding: 10px 25px;
 
 `;
-const MakingButton = styled.div`
+const MakingButton = styled.button`
   display: flex;
   width: 100px;
   min-width: 100px;
