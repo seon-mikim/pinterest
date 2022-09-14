@@ -37,7 +37,7 @@ const Home = () => {
     let promises = [];
     let pinData = [];
 
-    let pins = ["ocean", "Korea", "cats", "dogs"];
+    let pins = ["ocean", "Korea", "cats", "dogs","model"];
 
     pins.forEach((pinTerm) => {
       promises.push(

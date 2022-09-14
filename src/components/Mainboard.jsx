@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { __getList } from '../redux/modules/PinList'
-
+import "./MainBoard.css";
 
 import Pin from './Pin'
 import styled from 'styled-components'
@@ -24,7 +24,7 @@ const Mainboard = (props) => {
 
   return (
     <Wrapper>
-        <Container>
+        <Container className="mainboard__container">
           {pins&&pins.map((pin,index)=>{
             let {urls} = pin;
             return<Pin key={index} urls={urls}/>
@@ -47,11 +47,8 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-    
-    column-count:5;
-    column-gap: 10px;
+  
     margin: 0 auto;
     height: 100%;
-    max-width: 1260px;
     background-color: white;
 `
