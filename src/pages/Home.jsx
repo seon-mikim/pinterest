@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Btn from "../components/Btn";
 import Header from "../components/Header";
+import HeaderUser from "../components/HeaderUser"
 import Login from "./Login";
 import Join from "./Join";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +11,7 @@ import unsplash from "../api/unsplash";
 import { useEffect } from "react";
 
 const Home = () => {
+  const isLogin = localStorage.getItem('token1')
   const [pins, setNewPins] = useState([]);
   const getImage = (term) => {
     return unsplash.get("https://api.unsplash.com/search/photos", {
@@ -71,17 +73,12 @@ const Home = () => {
 
   return (
     <div>
-      <Header
-        onSubmit={onSearchSubmit}
-        
-        firstChild={
-          <Btn text={"홈"} type={"negative"} onClick={() => navigate("/")} />
-        }
+       {isLogin? <HeaderUser onSubmit={onSearchSubmit}/>: <Header
         leftChild={<Btn text={"로그인"} onClick={onClickButton} type={"red"} />}
         rightChild={
           <Btn text={"가입하기"} type={"default"} onClick={onClickButton2} />
         }
-      />
+      />}
       <Mainboard pins={pins} />
       {modal1 && (
         <Login

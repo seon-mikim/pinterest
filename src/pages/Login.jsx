@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { useDispatch } from "react-redux";
 
@@ -8,8 +8,9 @@ import "./style.css";
 
 const Login = ({ onClose }) => {
 
-  
+ 
   const hanleClose = (event) => {
+    event.preventDefault();
     onClose?.();
   };
 
@@ -30,16 +31,13 @@ const Login = ({ onClose }) => {
   };
 
   return (
-    <div className="background">
+    <div className="background" onClick={(event)=>{event.preventDefault(); hanleClose()}}>
       <div className="Login-area">
         <div>
           <div className="btn-area">
             <button
               className="close-btn"
-              onClick={(event) => {
-                event.preventDefault();
-                hanleClose();
-              }}>
+              onClick={hanleClose}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 100 100"

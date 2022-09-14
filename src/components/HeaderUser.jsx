@@ -1,15 +1,27 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import PinterestIcon from "@mui/icons-material/Pinterest";
-import TextsmsIcon from '@mui/icons-material/Textsms';
+import DropDown from "../components/DropDown/DropDown"
+import {logout} from "../redux/modules/Login"
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-// import "./style.css";
+
 import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
-  const navigate = useNavigate();
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const siteLogout = () => {
+    if (window.confirm("로그아웃 하시겠습니까?")) {
+        dispatch(logout());
+        navigate("/", {replace: true});
+    } else {
+        console.log("로그인 유지");
+    }
+};
+
   const [input, setInput] = useState("");
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -36,8 +48,7 @@ const Header = (props) => {
           </form>
         </SearchBarWrap>
       </SearchWrapper>
-
-     
+      <LogOutBtn onClick={siteLogout}>로그아웃</LogOutBtn>
 
       
     </Wrapper>
@@ -97,7 +108,7 @@ const SearchBarWrap = styled.div`
   background-color: #efefef;
   display: flex;
   height: 48px;
-  width: 100%;
+  width: 98%;
   border-radius: 50px;
   border: none;
   padding-left: 10px;
@@ -129,6 +140,18 @@ const SearchBarWrap = styled.div`
 `;
 
 
-const IconWrapper = styled.div`
-	
+const LogOutBtn = styled.button`
+    cursor: pointer;
+    border: none;
+    width: 100px;
+    border-radius: 20px;
+    background-color:  #e60023;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 20px;
+    word-spacing: normal;
+    font-size: 16px;
+    color: white;
+    margin-right: 10px;
+    font-weight: 600;
 `
