@@ -1,10 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import Container from "../components/pinpage/PinContainer";
-
-
-
+// import Container from "../components/pinpage/PinContainer";
+import Button from "../elem/Button"
+import HeaderUser from "../components/HeaderUser"
 
 const AddPin = () => {
 
@@ -12,8 +11,9 @@ const AddPin = () => {
 
     return (
         <>
+        <HeaderUser/>
         <Background>
-        <Container
+        {/* <Container
             className="PinAddWrapper"
             justify_content="initial"
             align_items="start"
@@ -21,8 +21,22 @@ const AddPin = () => {
             width="50%"
             border_radius="32px"
             box_shadow="0 1px 20px 0 rgb(0 0 0 / 10%)"
-        >
+        > */}
         <MainWrapper>
+        <ButtonWrapper>
+        <Button
+                  className="addBtn"
+                  width="64px"
+                  height="40px"
+                  font_size="16px"
+                  font_weight="700"
+                  color="white"
+                  background_color="red"
+                  border_radius="7px"
+                  border="none"
+                >Save</Button>
+                </ButtonWrapper>
+            <Bottom>
             <LeftSide>
                 <UploaderWrapper
                     name="uploadedImg"
@@ -63,8 +77,9 @@ const AddPin = () => {
                     // onChange={desChangeHandler}
                 />
             </RightSide>
+            </Bottom>
             </MainWrapper>
-        </Container>
+        {/* </Container> */}
         </Background>
         </>
     )
@@ -81,15 +96,27 @@ const Background = styled.div`
 `;
 
 const MainWrapper = styled.div`
-    width: 800px;
+    width: 880px;
     padding-top: 20px;
     position: absolute;
     background-color: #fff;
-    top: 20px;
+    top: 10px;
     left: 50%;
     height: auto;
     transform: translate(-50%, 10%);
     border-radius: 16px;
+    margin-bottom: 30px;
+`;
+
+const ButtonWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 30px;
+`;
+
+
+const Bottom = styled.div`
+    display: flex;
 `;
 
 const UploaderWrapper = styled.div`
@@ -104,7 +131,7 @@ const UploaderWrapper = styled.div`
 `;
 
 const LeftSide = styled.div`
-    margin: 10px 30px 20px;
+    margin: 10px 30px 30px;
     width: 100%;
 `;
 
@@ -161,9 +188,10 @@ const RightSide = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0 30px 0 10px;
+    margin: 0 30px 30px 20px;
     position: relative;
 `;
+
 
 const PinTitle = styled.textarea`
     border: none;

@@ -1,13 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import Container from "../components/pinpage/PinContainer";
 import PinImage from "../components/pinpage/PinImage";
 import ButtonBox from "../components/pinpage/PinButtonBox";
 import Desc from "../components/pinpage/PinDesc"
+import HeaderUser from "../components/HeaderUser"
 
 const Pin = () => {
 
     return (
     <>
+    <HeaderUser/>
+    <Background>
     <Container
         className="PinWrapper"
         justify_content="initial"
@@ -21,6 +25,7 @@ const Pin = () => {
         <ButtonBox/>
         <Desc/>
     </Container>
+    </Background>
     </>
     )
 
@@ -28,3 +33,9 @@ const Pin = () => {
 };
 
 export default Pin;
+
+const Background = styled.div`
+    position: relative;
+    height: 100vh;
+    background-color: #efefef;
+`;

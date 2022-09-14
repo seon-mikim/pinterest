@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { useNavigate } from "react-router-dom";
 
-const Header = (props) => {
+const HeaderUser = (props) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const siteLogout = () => {
@@ -22,6 +22,14 @@ const Header = (props) => {
     }
 };
 
+  const homenavi = () => {
+    navigate("/", {reload: true})
+};
+
+  const addnavi = () => {
+    navigate("/addpin", {reload: true})
+  };
+
   const [input, setInput] = useState("");
   const onSearchSubmit = (e) => {
     e.preventDefault();
@@ -30,12 +38,12 @@ const Header = (props) => {
   return (
     <Wrapper>
       <LogoWrapper>
-        <IconButton>
+        <IconButton onClick={homenavi}>
           <PinterestIcon />
         </IconButton>
       </LogoWrapper>
-      <HomePageButton onClick={navigate("/")}>홈</HomePageButton>
-      <MakingButton>만들기</MakingButton>
+      <HomePageButton onClick={homenavi}>홈</HomePageButton>
+      <MakingButton onClick={addnavi}>만들기</MakingButton>
 
       <SearchWrapper>
         <SearchBarWrap>
@@ -55,7 +63,7 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default HeaderUser;
 
 const Wrapper = styled.div`
   display: flex;
