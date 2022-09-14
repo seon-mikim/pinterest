@@ -1,13 +1,15 @@
 import { configureStore, } from "@reduxjs/toolkit";
-import loginSlice from "../modules/Login"
-import pinSlice from '../modules/Pin'
+import login from "../modules/Login"
+import pinlist from '../modules/PinList'
+import pin from '../modules/Pin'
 
 
 
 const store = configureStore({
     reducer:{
-        loginSlice,
-        pinSlice,
+        login,
+        pinlist,
+        pin,
     },
 
     middleware: (getDefaultMiddleware) => 

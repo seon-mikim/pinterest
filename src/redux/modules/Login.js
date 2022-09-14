@@ -45,7 +45,6 @@ const loginSlice = createSlice({
     name:'login',
     initialState:{
       data: [],
-      success: false,
       error: null,
       isLoading: false
     },
