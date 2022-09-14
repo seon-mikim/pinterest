@@ -30,8 +30,12 @@ const Container = styled.div`
   img {
     display: flex;
     width: 100%;
-    cursor: zoom-in;
     border-radius: 16px;
     object-fit: cover;
+
+    &:hover{
+      cursor: pointer;
+      filter:brigtness;
+    }
   }
 `;
