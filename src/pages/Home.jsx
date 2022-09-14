@@ -59,7 +59,7 @@ const Home = () => {
   useEffect(() => {
     getNewPin();
   }, []);
-  const navigate = useNavigate();
+ 
 
   const [modal1, setModal1] = useState(false);
 

@@ -10,7 +10,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import { useNavigate } from "react-router-dom";
 
-const Header = (props) => {
+const HeaderUser = (props) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const siteLogout = () => {
@@ -34,7 +34,7 @@ const Header = (props) => {
           <PinterestIcon />
         </IconButton>
       </LogoWrapper>
-      <HomePageButton onClick={navigate("/")}>홈</HomePageButton>
+      <HomePageButton>홈</HomePageButton>
       <MakingButton>만들기</MakingButton>
 
       <SearchWrapper>
@@ -55,7 +55,7 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default HeaderUser;
 
 const Wrapper = styled.div`
   display: flex;
