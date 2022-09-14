@@ -12,6 +12,7 @@ const AddPin = () => {
 
     return (
         <>
+        <Background>
         <Container
             className="PinAddWrapper"
             justify_content="initial"
@@ -21,33 +22,75 @@ const AddPin = () => {
             border_radius="32px"
             box_shadow="0 1px 20px 0 rgb(0 0 0 / 10%)"
         >
-            <UploaderWrapper
-                name="uploadedImg"
-                id="uploadedImg"
-                type="file"
-                accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
-            >
-                <InsideUploader>
-                    <IconWrap>
-                        <svg>
-                         <path d="M24 12c0-6.627-5.372-12-12-12C5.373 0 0 5.373 0 12s5.373 12 12 12c6.628 0 12-5.373 12-12zm-10.767 3.75a1.25 1.25 0 0 1-2.5 0v-3.948l-1.031 1.031a1.25 1.25 0 0 1-1.768-1.768L12 7l4.066 4.065a1.25 1.25 0 0 1-1.768 1.768l-1.065-1.065v3.982z"></path>
-                        </svg>
-                    </IconWrap>
-                    <Advice>click to upload</Advice>
-                    <Uploader
-                        id="ImageUploader"
-                        type="file"
-                        accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
-                    ></Uploader>
-                </InsideUploader>
-            </UploaderWrapper>
+        <MainWrapper>
+            <LeftSide>
+                <UploaderWrapper
+                    name="uploadedImg"
+                    id="uploadedImg"
+                    type="file"
+                    accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
+                >
+                    <InsideUploader>
+                        <IconWrap>
+                            <svg>
+                            <path d="M24 12c0-6.627-5.372-12-12-12C5.373 0 0 5.373 0 12s5.373 12 12 12c6.628 0 12-5.373 12-12zm-10.767 3.75a1.25 1.25 0 0 1-2.5 0v-3.948l-1.031 1.031a1.25 1.25 0 0 1-1.768-1.768L12 7l4.066 4.065a1.25 1.25 0 0 1-1.768 1.768l-1.065-1.065v3.982z"></path>
+                            </svg>
+                        </IconWrap>
+                        <Advice>click to upload</Advice>
+                        <Uploader
+                            id="ImageUploader"
+                            type="file"
+                            accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
+                        ></Uploader>
+                    </InsideUploader>                   
+                </UploaderWrapper>
+            </LeftSide>
+            <RightSide>
+                <PinTitle
+                    type="text"
+                    placeholder="Add your title"
+                    maxlength="50"
+                    rows="1"
+                    // onKeyDown={(e) => Resizing(e.target)}
+                    // onChange={titleChangeHandler}
+                />
+                <PinDescription
+                    type="text"
+                    placeholder="Tell everyone what your Pin is about"
+                    maxlength="500"
+                    rows="1"
+                    // onKeyDown={(e) => Resizing(e.target)}
+                    // onChange={desChangeHandler}
+                />
+            </RightSide>
+            </MainWrapper>
         </Container>
+        </Background>
         </>
     )
 
 };
 
 export default AddPin;
+
+
+const Background = styled.div`
+    position: relative;
+    height: 100vh;
+    background-color: #efefef;
+`;
+
+const MainWrapper = styled.div`
+    width: 800px;
+    padding-top: 20px;
+    position: absolute;
+    background-color: #fff;
+    top: 20px;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, 10%);
+    border-radius: 16px;
+`;
 
 const UploaderWrapper = styled.div`
     background-color: rgb(239, 239, 239);
@@ -58,6 +101,11 @@ const UploaderWrapper = styled.div`
     height: 510px;
     position: relative;
 
+`;
+
+const LeftSide = styled.div`
+    margin: 10px 30px 20px;
+    width: 100%;
 `;
 
 const InsideUploader = styled.div`
@@ -108,3 +156,48 @@ const Advice = styled.div`
     top: 60%;
 
 `
+
+const RightSide = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 30px 0 10px;
+    position: relative;
+`;
+
+const PinTitle = styled.textarea`
+    border: none;
+    border-bottom: 1px solid rgba(142, 142, 142, 0.5);
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    color: #333;
+    caret-color: #333;
+    overflow: auto;
+    outline: 0px none transparent;
+    resize: none;
+    &:focus {
+        border-bottom: 1.5px solid rgb(0, 116, 232);
+    }
+
+`;
+
+const PinDescription = styled.textarea`
+    width: 400px;       
+    border: none;
+    border-bottom: 1px solid rgba(142, 142, 142, 0.5);
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    caret-color: #333;
+    overflow: auto;
+    outline: 0px none transparent;
+    resize: none;
+    &:focus {
+        border-bottom: 1.5px solid rgb(0, 116, 232);
+    }
+
+`;
