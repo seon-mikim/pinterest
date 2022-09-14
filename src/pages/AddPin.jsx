@@ -7,6 +7,7 @@ import Button from "../elem/Button"
 import HeaderUser from "../components/HeaderUser"
 import { __AddPin } from "../redux/modules/Pin"
 
+
 const AddPin = () => {
 
     const navigate = useNavigate();
@@ -271,7 +272,7 @@ const RightSide = styled.div`
 `;
 
 
-const PinTitle = styled.textarea`
+const PinTitle = styled.input`
     border: none;
     border-bottom: 1px solid rgba(142, 142, 142, 0.5);
     padding: 10px;
@@ -289,7 +290,7 @@ const PinTitle = styled.textarea`
 
 `;
 
-const PinDescription = styled.textarea`
+const PinDescription = styled.input`
     width: 320px;       
     border: none;
     border-bottom: 1px solid rgba(142, 142, 142, 0.5);
