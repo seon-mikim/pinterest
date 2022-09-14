@@ -1,11 +1,8 @@
 import React,{useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { __getList } from '../redux/modules/PinList'
-
-
 import Pin from './Pin'
 import styled from 'styled-components'
-
 
 
 const Mainboard = (props) => {
@@ -13,7 +10,7 @@ const Mainboard = (props) => {
   const dispatch = useDispatch();
   const pinlist = useSelector((state) => state.pinlist.pinlist);
 
-  // console.log(pinlist)
+  console.log(pinlist?.content)
 
   useEffect(() => {
     dispatch(__getList());
@@ -25,11 +22,13 @@ const Mainboard = (props) => {
   return (
     <Wrapper>
         <Container>
-          {pins&&pins.map((pin,index)=>{
+          {pinlist?.content.map((pin,index)=>{
+            return<Pin pin={pin} key={index}/>
+          })}
+           {/* {pins&&pins.map((pin,index)=>{
             let {urls} = pin;
             return<Pin key={index} urls={urls}/>
-          })}
-          
+          })} */}
         </Container>
     </Wrapper>
   )
