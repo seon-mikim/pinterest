@@ -1,4 +1,6 @@
 import React,{useEffect} from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { __getList } from '../redux/modules/PinList'
 
 
 import Pin from './Pin'
@@ -7,6 +9,16 @@ import styled from 'styled-components'
 
 
 const Mainboard = (props) => {
+
+  const dispatch = useDispatch();
+  const pinlist = useSelector((state) => state.pinlist.pinlist);
+
+  console.log(pinlist)
+
+  useEffect(() => {
+    dispatch(__getList());
+  }, []);
+
   
   let {pins} = props
 
