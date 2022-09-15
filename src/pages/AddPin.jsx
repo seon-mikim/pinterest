@@ -15,24 +15,32 @@ const AddPin = () => {
     const [image, setImage] = useState("");
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+    const [category, setCategory] = useState("");
 
     const [imgBase64, setImgBase64] = useState(""); // 파일 base64
     const [uploadedfile, setUploadedfile] = useState(""); //업로드한 파일
 
-    const PinData = {
-        title: title,
-        content: content,
-        image: image,
-    }
+    // const PinData = {
+    //     title: title,
+    //     content: content,
+    //     image: image,
+    //     category: category,
+    // }
 
     const SummitSave = () => {
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("image", uploadedfile);
+        formData.append("category", category);
 
-        if (title ==="" || image ==="" || content ==="" ){
+        if (title ==="" || image ==="" || content ==="" | category ==="" ){
             window.alert("항목을 모두 입력하세요.");
             return;
         }
-        dispatch(__AddPin(PinData));
-        navigate("/", {replace: true});
+        dispatch(__AddPin(formData));
+        // navigate("/", {replace: true});
+        window.location.replace("/")
     };
 
     const titleChangeHandler = (e) => {
@@ -48,6 +56,11 @@ const AddPin = () => {
     const fileChangeHandler = (e) => {
         const files = e.target.files;
         setUploadedfile(files[0]);
+    };
+
+    const categoryChangeHandler = (e) => {
+        const category = e.target.value;
+        setCategory(category);
     };
 
      //업로드한 사진 미리 보여주는 함수
@@ -140,6 +153,15 @@ const AddPin = () => {
                             // onKeyDown={(e) => Resizing(e.target)}
                             // onChange={desChangeHandler}
                             />
+                             <PinCategory
+                                type="text"
+                                placeholder="Tell everyone what your Pin is about"
+                                maxlength="500"
+                                rows="1"
+                                onChange={categoryChangeHandler}
+                            // onKeyDown={(e) => Resizing(e.target)}
+                            // onChange={desChangeHandler}
+                            />
                         </RightSide>
                     </Bottom>
                 </MainWrapper>
@@ -190,7 +212,6 @@ const UploaderWrapper = styled.div`
     padding: 15px;
     height: 510px;
     position: relative;
-
 `;
 
 const Preview = styled.div`
@@ -233,7 +254,6 @@ const IconWrap = styled.div`
         color: #767676;
         width: 48px;
         height: 48px;
-
         path {
             fill: currentColor;
         }
@@ -260,7 +280,6 @@ const Advice = styled.div`
     padding: auto 48px;
     position: absolute;
     top: 60%;
-
 `
 
 const RightSide = styled.div`
@@ -287,7 +306,6 @@ const PinTitle = styled.input`
     &:focus {
         border-bottom: 1.5px solid rgb(0, 116, 232);
     }
-
 `;
 
 const PinDescription = styled.input`
@@ -306,5 +324,22 @@ const PinDescription = styled.input`
     &:focus {
         border-bottom: 1.5px solid rgb(0, 116, 232);
     }
+`;
 
+const PinCategory = styled.input`
+    width: 320px;       
+    border: none;
+    border-bottom: 1px solid rgba(142, 142, 142, 0.5);
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    caret-color: #333;
+    overflow: auto;
+    outline: 0px none transparent;
+    resize: none;
+    &:focus {
+        border-bottom: 1.5px solid rgb(0, 116, 232);
+    }
 `;

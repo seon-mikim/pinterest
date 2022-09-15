@@ -6,19 +6,24 @@ export const __AddPin = createAsyncThunk(
     "api/auth/post",
     async (payload, thunkAPI) => {
         try {
-            // console.log(payload);
-            const data =  await axios.post("http://13.125.24.153/api/auth/post", { 
-                payload,
+            console.log(payload);
+            const data =  await axios.post("http://13.125.24.153/api/auth/post", 
+                payload, { 
                 headers: {
-                  Authorization: localStorage.getItem("token1"),
-                  RefreshToken: localStorage.getItem("token2")
+                  Authorization: 'Bearer ' + localStorage.getItem("Token"),
+                  RefreshToken: localStorage.getItem("RefreshToken"),
+                  "Content-Type": "multipart/form-data"
               }  
             });
-            console.log(data);
-            // return thunkAPI.fulfillWithValue(data.data);
+           if(data.data.success ===true){
+              alert('이미지 업로드 성공')
+           }else{
+                alert(data.data.error.message)
+              console.log(data);
+             return thunkAPI.fulfillWithValue(data.data);
+           }
           } catch (error) {
-            console.log(error);
-            // return thunkAPI.rejectWithValue(error);
+            return thunkAPI.rejectWithValue(error);
           }
     }
   );
@@ -49,3 +54,4 @@ export const pinSlice = createSlice({
   
   export const {} = pinSlice.actions;
   export default pinSlice.reducer;
+
