@@ -4,7 +4,7 @@ import axios from 'axios'
 //핀 리스트 불러오기
 export const __getPinDetail = createAsyncThunk(
     "api/post",
-    async (payload, thunkAPI) => {
+    async (postId, thunkAPI) => {
         try {
             // console.log(payload);
             const data =  await axios.get(`http://13.125.24.153/api/post/${postId}`, {
@@ -23,7 +23,7 @@ export const __getPinDetail = createAsyncThunk(
   );
 
 const initialState = {
-    result: [],
+    pindetail: [],
     isLoading: false,
     error: null,
   };

@@ -1,12 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
+import styled from "styled-components";
 const Pin = (props) => {
-    let {pin} =props;
-    
+  let {pin} =props;
+  console.log(pin)
+  const navigate = useNavigate()
   return (
     <Wrapper>
-      <Container>
+      <Container onClick={()=>{navigate(`/pin/${pin.id}`)}}>
         <img src={pin.image} alt="pin" />
       </Container>
     </Wrapper>
