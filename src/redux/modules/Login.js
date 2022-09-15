@@ -10,8 +10,8 @@ import axios from 'axios'
             const data =  await axios.post("http://13.125.24.153/api/member/login", payload);
             // console.log(data);
             
-            localStorage.setItem("Token", data.data.authorization)
-            localStorage.setItem("RefreshToken", data.data.refreshToken)
+            localStorage.setItem("token1", data.headers.authorization)
+            localStorage.setItem("token2", data.headers.refreshtoken)
   
             if(data.data.success===false)
                 alert(data.data.error.message);
@@ -51,8 +51,8 @@ const loginSlice = createSlice({
     reducers: {
       
         logout(state){
-            localStorage.removeItem("Token")
-            localStorage.removeItem("RefreshToken")         
+            localStorage.removeItem('token1')
+            localStorage.removeItem('token2')         
         }
     },
 

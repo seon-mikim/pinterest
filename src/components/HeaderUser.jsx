@@ -15,8 +15,7 @@ const HeaderUser = (props) => {
   const siteLogout = () => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
         dispatch(logout());
-        // navigate("/", {replace: true});
-        window.location.replace("/")
+        navigate("/", {replace: true});
     } else {
         console.log("로그인 유지");
     }
