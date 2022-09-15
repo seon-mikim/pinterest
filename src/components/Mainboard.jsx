@@ -22,7 +22,7 @@ const Mainboard = (props) => {
   return (
     <Wrapper>
         <Container>
-          {pinlist?.content.map((pin,index)=>{
+          {pinlist?.content.slice().reverse().map((pin,index)=>{
             return<Pin pin={pin} key={index}/>
           })}
            {/* {pins&&pins.map((pin,index)=>{

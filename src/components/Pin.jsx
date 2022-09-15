@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 const Pin = (props) => {
   let {pin} =props;
-  console.log(pin)
+  // console.log(pin)
   const navigate = useNavigate()
   return (
     <Wrapper>
