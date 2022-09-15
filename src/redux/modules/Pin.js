@@ -6,12 +6,12 @@ export const __AddPin = createAsyncThunk(
     "api/auth/post",
     async (payload, thunkAPI) => {
         try {
-            // console.log(payload);
-            const data =  await axios.post("http://13.125.24.153/api/auth/post", { 
-                payload,
+            console.log(payload);
+            const data =  await axios.post("http://13.125.24.153/api/auth/post", 
+                payload, { 
                 headers: {
-                  Authorization: localStorage.getItem("token1"),
-                  RefreshToken: localStorage.getItem("token2")
+                  Authorization: 'Bearer ' + localStorage.getItem("Token"),
+                  RefreshToken: localStorage.getItem("RefreshToken")
               }  
             });
             console.log(data);
