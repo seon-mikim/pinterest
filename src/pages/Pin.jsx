@@ -18,7 +18,15 @@ const Pin = () => {
               </LeftSide>
               <RightSide>
                 <ButtonBox />
-                <Title>제목이 옵니다</Title>
+                <InfoArea>
+                  <Title>제목이 옵니다</Title>
+                  <Des>설명이 들어옵니다</Des>
+                  <UserArea>
+                    <UserImage></UserImage>
+                    <UserName>유저이름</UserName>
+                  </UserArea>
+                </InfoArea>
+                
               </RightSide>
             </Shadow>
           </Container>
@@ -57,6 +65,7 @@ const Shadow = styled.div`
   display: flex;
   width: 100%;
   height: 700px;
+  margin-top: 20px;
   box-shadow: rgb(0 0 0 / 10%) 0 1px 20px 0px;
   background-color: white;
   border-radius: 32px;
@@ -79,15 +88,44 @@ const RightSide = styled.div`
 `;
 
 const ImgWrap = styled.div`
-    width: 100%;
+    width: 97%;
     height: 96%;
     background-color: black;
-    border-radius: 8px;
+    border-radius: 32px;
     padding: 15px;
    
     position: relative;
 `
 
+const InfoArea = styled.div`
+  width: 100%;
+`
+
 const Title = styled.h1`
  padding-left: 50px;
+`
+
+const Des = styled.p`
+  padding-left: 50px;
+`
+
+const UserArea = styled.div`
+  padding-left: 50px;
+ 
+`
+
+const UserImage = styled.div`
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  border-radius: 100%;
+  background-color: #ececec;
+
+  float: left;
+`
+const UserName = styled.span`
+   
+   text-align: center;
+   align-items: center;
+   justify-content: center;
 `

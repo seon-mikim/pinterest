@@ -1,14 +1,23 @@
-import React, { useState, useRef } from "react";
-
+import React, { useState } from "react";
+import GoogleLogin from "react-google-login";
 import { useDispatch } from "react-redux";
-
 import Btn from "../components/Btn";
 import { __login } from "../redux/modules/Login";
 import "./style.css";
 
-const Login = ({ onClose }) => {
-
+const Login = ({ onClose,ref }) => {
  
+  // const googleLogin = useCallback((response) => {
+  //   const userInfo = {
+  //       profileImg: response.profileObj.imageUrl,
+  //       email: response.profileObj.email,
+  //       name: response.profileObj.name
+  //   }
+  //   setUserInfo(userInfo);
+  //       setIsLogin(true);
+  //   }, [])
+
+
   const handleClose = (event) => {
     event.preventDefault();
     onClose?.();
@@ -29,9 +38,10 @@ const Login = ({ onClose }) => {
     event.preventDefault();
     dispatch(__login(user));
   };
+  
 
   return (
-    <div className="background">
+    <div className="background"  >
       <div className="Login-area">
         <div>
           <div className="btn-area">
@@ -87,8 +97,19 @@ const Login = ({ onClose }) => {
 
             <div className="Login-btn-area">
               <Btn className="Login-btn" text={"로그인"} type={"red"} />
+              {/* <GoogleLogin className="GoogleLogin-btn"
+            clientId='461243201127-e8gh5g7jui6tq26fbnejrk613086d35e.apps.googleusercontent.com'
+            buttonText="Google 계정으로 계속하기"
+            
+            onSuccess={googleLogin}
+            onFailure={(res) => console.log(res)}
+            cookiePolicy={'single_host_origin'}/> */}
             </div>
           </form>
+          
+         
+          
+          
         </div>
       </div>
     </div>
@@ -96,3 +117,5 @@ const Login = ({ onClose }) => {
 };
 
 export default Login;
+
+

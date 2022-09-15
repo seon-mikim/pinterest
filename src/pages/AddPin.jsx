@@ -1,87 +1,149 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 // import Container from "../components/pinpage/PinContainer";
 import Button from "../elem/Button"
 import HeaderUser from "../components/HeaderUser"
+import { __AddPin } from "../redux/modules/Pin"
 
 
 const AddPin = () => {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [image, setImage] = useState("");
+    const [title, setTitle] = useState("");
+    const [content, setContent] = useState("");
+
+    const [imgBase64, setImgBase64] = useState(""); // 파일 base64
+    const [uploadedfile, setUploadedfile] = useState(""); //업로드한 파일
+
+    const PinData = {
+        title: title,
+        content: content,
+        image: image,
+    }
+
+    const SummitSave = () => {
+
+        if (title ==="" || image ==="" || content ==="" ){
+            window.alert("항목을 모두 입력하세요.");
+            return;
+        }
+        dispatch(__AddPin(PinData));
+        navigate("/", {replace: true});
+    };
+
+    const titleChangeHandler = (e) => {
+        const title = e.target.value;
+        setTitle(title);
+    };
+
+    const contentChangeHandler = (e) => {
+        const content = e.target.value;
+        setContent(content);
+    };
+
+    const fileChangeHandler = (e) => {
+        const files = e.target.files;
+        setUploadedfile(files[0]);
+    };
+
+     //업로드한 사진 미리 보여주는 함수
+     const handleChangeFile = (event) => {
+        event.preventDefault();
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            // 2. 읽기가 완료되면 아래코드가 실행
+            const base64 = reader.result;
+            if (base64) {
+                setImgBase64(base64.toString()); // 파일 base64 상태 업데이트
+            }
+        };
+        if (event.target.files[0]) {
+            reader.readAsDataURL(event.target.files[0]); // 1. 파일을 읽어 버퍼에 저장
+            setImage(event.target.files[0]); // 파일 상태 업데이트
+        }
+    };
 
 
     return (
         <>
-        <HeaderUser/>
-        <Background>
-        {/* <Container
-            className="PinAddWrapper"
-            justify_content="initial"
-            align_items="start"
-            margin="80px auto"
-            width="50%"
-            border_radius="32px"
-            box_shadow="0 1px 20px 0 rgb(0 0 0 / 10%)"
-        > */}
-        <MainWrapper>
-        <ButtonWrapper>
-        <Button
-                  className="addBtn"
-                  width="64px"
-                  height="40px"
-                  font_size="16px"
-                  font_weight="700"
-                  color="white"
-                  background_color="red"
-                  border_radius="7px"
-                  border="none"
-                >저장</Button>
-                </ButtonWrapper>
-            <Bottom>
-            <LeftSide>
-                <UploaderWrapper
-                    name="uploadedImg"
-                    id="uploadedImg"
-                    type="file"
-                    accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
-                >
-                    <InsideUploader>
-                        <IconWrap>
-                            <svg>
-                            <path d="M24 12c0-6.627-5.372-12-12-12C5.373 0 0 5.373 0 12s5.373 12 12 12c6.628 0 12-5.373 12-12zm-10.767 3.75a1.25 1.25 0 0 1-2.5 0v-3.948l-1.031 1.031a1.25 1.25 0 0 1-1.768-1.768L12 7l4.066 4.065a1.25 1.25 0 0 1-1.768 1.768l-1.065-1.065v3.982z"></path>
-                            </svg>
-                        </IconWrap>
-                        <Advice>드래그하거나 클릭하여 업로드</Advice>
-                        <Uploader
-                            id="ImageUploader"
-                            type="file"
-                            accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
-                        ></Uploader>
-                    </InsideUploader>                   
-                </UploaderWrapper>
-            </LeftSide>
-            <RightSide>
-                <PinTitle
-                    type="text"
-                    placeholder="제목"
-                  
-                  
-                    // onKeyDown={(e) => Resizing(e.target)}
-                    // onChange={titleChangeHandler}
-                />
-                
-                <PinDescription
-                    type="text"
-                    placeholder="사람들에게 회원님의 핀에 대해 설명해 보세요"
-                    
-                    // onKeyDown={(e) => Resizing(e.target)}
-                    // onChange={desChangeHandler}
-                />
-            </RightSide>
-            </Bottom>
-            </MainWrapper>
-        {/* </Container> */}
-        </Background>
+            <HeaderUser />
+            <Background>
+                <MainWrapper>
+                    <ButtonWrapper>
+                        <Button
+                            className="addBtn"
+                            width="64px"
+                            height="40px"
+                            font_size="16px"
+                            font_weight="700"
+                            color="white"
+                            background_color="red"
+                            border_radius="7px"
+                            border="none"
+                            _onClick={SummitSave}
+                        >Save</Button>
+                    </ButtonWrapper>
+                    <Bottom>
+                        <LeftSide>
+                            <UploaderWrapper
+                                name="uploadedImg"
+                                id="uploadedImg"
+                                type="file"
+                                accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
+                                onChange={handleChangeFile}
+                            >
+                                {imgBase64 ? (
+                                    <Preview>
+                                        <img
+                                            src={imgBase64}
+                                            alt="imagepreview"
+                                            // onClick={setImgBase64(null)}
+                                        />
+                                    </Preview>
+                                ) : null}
+                                <InsideUploader>
+                                    <IconWrap>
+                                        <svg>
+                                            <path d="M24 12c0-6.627-5.372-12-12-12C5.373 0 0 5.373 0 12s5.373 12 12 12c6.628 0 12-5.373 12-12zm-10.767 3.75a1.25 1.25 0 0 1-2.5 0v-3.948l-1.031 1.031a1.25 1.25 0 0 1-1.768-1.768L12 7l4.066 4.065a1.25 1.25 0 0 1-1.768 1.768l-1.065-1.065v3.982z"></path>
+                                        </svg>
+                                    </IconWrap>
+                                    <Advice>click to upload</Advice>
+                                    <Uploader
+                                        id="ImageUploader"
+                                        type="file"
+                                        accept="image/bmp,image/gif,image/jpeg,image/png,image/tiff,image/webp"
+                                        onChange={fileChangeHandler}
+                                    ></Uploader>
+                                </InsideUploader>
+                            </UploaderWrapper>
+                        </LeftSide>
+                        <RightSide>
+                            <PinTitle
+                                type="text"
+                                placeholder="Add your title"
+                                maxlength="50"
+                                rows="1"
+                                onChange={titleChangeHandler}
+                            // onKeyDown={(e) => Resizing(e.target)}
+                            // onChange={titleChangeHandler}
+                            />
+                            <PinDescription
+                                type="text"
+                                placeholder="Tell everyone what your Pin is about"
+                                maxlength="500"
+                                rows="1"
+                                onChange={contentChangeHandler}
+                            // onKeyDown={(e) => Resizing(e.target)}
+                            // onChange={desChangeHandler}
+                            />
+                        </RightSide>
+                    </Bottom>
+                </MainWrapper>
+            </Background>
         </>
     )
 
@@ -129,6 +191,21 @@ const UploaderWrapper = styled.div`
     height: 510px;
     position: relative;
 
+`;
+
+const Preview = styled.div`
+    top: 0;
+    left: 0;
+    z-index: 700;
+    position: absolute;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    img {
+        width: 100%;
+        height: 100%;
+        border-radius: 8px;
+    }
 `;
 
 const LeftSide = styled.div`

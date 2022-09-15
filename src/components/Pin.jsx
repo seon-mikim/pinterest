@@ -34,9 +34,6 @@ const Container = styled.div`
     border-radius: 16px;
     object-fit: cover;
 
-    &:hover{
-      cursor: pointer;
-      filter:brigtness;
-    }
+ 
   }
 `;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useRef } from "react";
 import Btn from "../components/Btn";
 import Header from "../components/Header";
 import HeaderUser from "../components/HeaderUser"
@@ -11,6 +11,7 @@ import unsplash from "../api/unsplash";
 import { useEffect } from "react";
 
 const Home = () => {
+  const ModalRef = useRef()
   const isLogin = localStorage.getItem('token1')
   const [pins, setNewPins] = useState([]);
   const getImage = (term) => {
@@ -82,6 +83,7 @@ const Home = () => {
       <Mainboard pins={pins} />
       {modal1 && (
         <Login
+        ref={ModalRef}
           modal1={modal1}
           onClose={() => {
             setModal1(false);
@@ -90,6 +92,7 @@ const Home = () => {
       )}
       {modal2 && (
         <Join
+        ref={ModalRef}
           modal2={modal2}
           onClose={() => {
             setModal2(false);
