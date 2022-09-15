@@ -11,7 +11,7 @@ const Router = () => {
         <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/main' element={<Main/>}/>
-            <Route path='/pin' element={<Pin/>}/>
+            <Route path='/pin/:id' element={<Pin/>}/>
             <Route path='/addpin' element={<AddPin/>}/>
         </Routes>
     </BrowserRouter>

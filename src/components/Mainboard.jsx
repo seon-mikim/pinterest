@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 
 const Mainboard = (props) => {
-
+  
   const dispatch = useDispatch();
   const pinlist = useSelector((state) => state.pinlist.pinlist);
 
