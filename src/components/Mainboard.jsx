@@ -5,24 +5,24 @@ import Pin from './Pin'
 import styled from 'styled-components'
 
 
-const Mainboard = (props) => {
+const Mainboard = () => {
   
   const dispatch = useDispatch();
   const pinlist = useSelector((state) => state.pinlist.pinlist);
 
-  console.log(pinlist?.content)
+  // console.log(pinlist)
 
   useEffect(() => {
     dispatch(__getList());
-  }, []);
+  }, [dispatch]);
 
   
-  let {pins} = props
+  // let {pins} = props
 
   return (
     <Wrapper>
         <Container>
-          {pinlist?.content.slice().reverse().map((pin,index)=>{
+          {pinlist?.content?.slice().reverse().map((pin,index)=>{
             return<Pin pin={pin} key={index}/>
           })}
            {/* {pins&&pins.map((pin,index)=>{

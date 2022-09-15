@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
-const Pin = (props) => {
-  let {pin} =props;
-  // console.log(pin)
+const Pin = ( {pin} ) => {
+  
   const navigate = useNavigate()
+
   return (
     <Wrapper>
       <Container onClick={()=>{navigate(`/pin/${pin.id}`)}}>
