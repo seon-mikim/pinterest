@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { __getList } from '../redux/modules/PinList'
 import Pin from './Pin'
 import styled from 'styled-components'
+import './MainBoard.css'
 
 
 const Mainboard = (props) => {
@@ -21,8 +22,8 @@ const Mainboard = (props) => {
 
   return (
     <Wrapper>
-        <Container>
-          {pinlist?.content.map((pin,index)=>{
+        <Container className="mainboard__container">
+          {pinlist&&pinlist.content.map((pin,index)=>{
             return<Pin pin={pin} key={index}/>
           })}
            {/* {pins&&pins.map((pin,index)=>{
@@ -47,10 +48,9 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
     
-    column-count:5;
     column-gap: 10px;
     margin: 0 auto;
     height: 100%;
-    max-width: 1260px;
+  
     background-color: white;
 `

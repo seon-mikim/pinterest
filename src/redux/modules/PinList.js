@@ -10,7 +10,8 @@ export const __getList = createAsyncThunk(
             const data =  await axios.get("http://13.125.24.153/api/post", {
                 headers: {
                   Authorization: localStorage.getItem("token1"),
-                  RefreshToken: localStorage.getItem("token2")
+                  RefreshToken: localStorage.getItem("token2"),
+                  
               }  
             });
             // console.log(data);
