@@ -12,7 +12,7 @@ const Header = ({ leftChild, rightChild }) => {
         <IconButton>
           <PinterestIcon />
         </IconButton>
-		pintrest
+		pinterest
       </LogoWrapper>
 		<LoginJoinArea>
 			<div className="head_btn_left">{leftChild}</div>
