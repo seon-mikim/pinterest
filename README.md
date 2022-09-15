@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# 📝Pinterest 클론 코딩
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[노션 개발일지](https://www.notion.so/5-5f5481ee2c6a433da01ec4540dfcea1c#9a7b99f76050417dbc57fe5ddd0e628d)
+- 와이어프레임, API, ERD
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+### 📌 프로젝트 소개
+- 핀터레스트 클론코딩입니다!
 
-### `yarn start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📰 제작기간 & 팀원 소개
+- 2022-09-09 ~ 2022-09-15
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+`Front-end`
+- 김고은 
+- 김선미
 
-### `yarn test`
+`Back-end`
+- 이종한
+- 김동훈
+- 류경현
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `yarn build`
+### ⛏ 사용 기술
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+`Back-end`
+-   Java 11
+-   Spring Boot 2.7.2
+-   H2, MySQL
+-   Spring security, JWT
+-   AWS S3, IAM, EC2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`Front-end`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+-   JavaScript
+-   React
 
-### `yarn eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ✔ 구현 기능
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. 로그인/회원가입/로그인 유지
+2. 비밀번호 찾기 
+3. 사진 등록, 댓글,대댓글 좋아요 기능
+4. 내가 작성한 게시물 확인
+5. 인피니티 스크롤
+6. 게시물 검색 
+7. 관심사 별 카테고리 
+8. 보드에 유저 별 이미지 저장
+9. 팔로잉 팔로워 ,알림
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<br>
 
-## Learn More
+### ⚒ Trouble Shooting
+FE:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+BE:  
+- N:M관계를 가지는 저장시스템을 분리한 엔티티를 만들어 N:1 .1:M의 형태로 값을 출력할수 있도록함.
+- BindException 오류 : S3를 로컬환경에서 실행시 메타데이터를 찾을수 없어 오류가 발생 -> 환경변수를 설정하고 프로퍼티를 설정하여 해결함.
+- enum에 받을 인수 타입을 스트링으로 받았는데 타입오류가 남. -> valueOf를 사용해서 타입을 바꿔주고 실행하여 해결함.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### 에러 핸들러 사용방법.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```java
+ throw new BusinessException("로그인 실패",LOGIN_INPUT_INVALID);
+```
+다음과같이 사용함
+BusinessException 클래스의 내용과 ErrorResponse,ErrorCode의 내용을 참조할것.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+파일구조
+```
+    src
+    ├─main
+    │  ├─java
+    │  │  └─spring
+    │  │      └─week7
+    │  │          ├─Auth //인증 enum을 모아놓은 디렉토리
+    │  │          ├─Configuration //스프링 웹 시큐리티,JWT 삽입을 위한 Configuration
+    │  │          ├─Controller
+    │  │          ├─domain //엔티티를 모아놓은 domin
+    │  │          ├─Dto // 응답,요청을 위한 Dto
+    │  │          │  ├─Request
+    │  │          │  └─Response
+    │  │          ├─Errorhandler // 통합 에러처리를 위한 에러핸들러
+    │  │          ├─Jwt
+    │  │          ├─Repository
+    │  │          ├─Service
+    │  │          └─Util  //s3 사용을 위한 디렉토리
+    │  └─resources
+    │      ├─static
+    │      └─templates
+    └─test
+        └─java
+            └─spring
+                └─week7
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
