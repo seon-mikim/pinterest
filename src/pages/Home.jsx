@@ -11,7 +11,7 @@ import unsplash from "../api/unsplash";
 import { useEffect } from "react";
 
 const Home = () => {
-  const isLogin = localStorage.getItem('token1')
+  const isLogin = localStorage.getItem('Token')
   const [pins, setNewPins] = useState([]);
   const getImage = (term) => {
     return unsplash.get("https://api.unsplash.com/search/photos", {
